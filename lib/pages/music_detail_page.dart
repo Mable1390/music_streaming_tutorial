@@ -50,11 +50,15 @@ class _MusicDetailPageState extends State<MusicDetailPage> {
     advancedPlayer = new AudioPlayer();
     audioCache = new AudioCache(fixedPlayer: advancedPlayer);
     playSound(widget.songUrl);
+    //now let's handle the audioplayer time
+    //this function will allow you to get the music duration
     advancedPlayer.durationHandler = (d) {
       setState(() {
         musicLength = d;
       });
     };
+
+    //this function will allow us to move the cursor of the slider while we are playing the song
     advancedPlayer.positionHandler = (p) {
       setState(() {
         position = p;
